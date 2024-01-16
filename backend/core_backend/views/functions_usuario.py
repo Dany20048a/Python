@@ -50,7 +50,10 @@ def create_users(request):
     if 'apellido' not in data:
         data['apellido'] = None
     user = Usuario.objects.create(nombre=data['nombre'],apellido=data['apellido'])
-    user.identificador = random.randint(1000,9999)
+    while True:
+        user.identificador = random.randint(1000,9999)
+        if not Usuario.objects.filter(identificador=user.identificador).exists():
+            break
     user.save()
     return Response('Usuario creado con éxito')
 
