@@ -20,5 +20,5 @@ class Reservacion(models.Model):
     sala = models.ForeignKey(Sala, null=True, blank=True, on_delete=models.CASCADE)
     fecha = models.DateField(null=True, blank=True)
     hora_inicio = models.TimeField(null=True, blank=True)
-    hora_fin = models.TimeField(null=True, blank=True)
+    hora_final = models.TimeField(null=True, blank=True)
     personas = models.IntegerField(null=True, blank=True)
